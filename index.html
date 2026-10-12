@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happy Birthday Sanviiii! ✨ | Celebrating Our Queen Sanu</title>
+  <meta name="description" content="A magical and memorable birthday celebration website created with love for Sanviiii (Sanu).">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Background Particle Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ==================== WAKE UP SANU OVERLAY (INTRO) ==================== -->
+  <div id="wake-up-overlay" class="wake-up-overlay">
+    <div class="stars-bg"></div>
+    <div class="wake-up-content">
+      <div class="sleeping-moon-badge">
+        <span class="sleep-emoji">😴</span>
+        <div class="floating-zzz">
+          <span class="z1">z</span>
+          <span class="z2">z</span>
+          <span class="z3">Z</span>
+        </div>
+      </div>
+      <p class="wake-up-tag">SECRET BIRTHDAY TRANSMISSION 💌</p>
+      <h1 class="wake-up-title">Shhh... Is Sanu Sleeping?</h1>
+      <p class="wake-up-subtitle">
+        Current Status: <em>Sound asleep & charging energy...</em><br>
+        Tap below to sound the royal alarm and wake up the Birthday Queen!
+      </p>
+      
+      <button id="wake-up-btn" class="btn-wake-up" aria-label="Wake up Sanu">
+        <span class="btn-icon">⏰</span>
+        <span class="btn-text">Wake Up Sanviiii! ✨</span>
+        <span class="btn-sparkle">✨</span>
+      </button>
+
+      <p class="snooze-hint">Warning: She might ask for 5 more minutes! 😉</p>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+  <div id="main-wrapper" class="main-wrapper">
+
+    <!-- Floating Audio & Control Pill -->
+    <header class="top-nav-bar">
+      <div class="nav-brand">
+        <span class="brand-crown">👑</span>
+        <span class="brand-name">Sanviiii</span>
+        <span class="brand-dot"></span>
+        <span class="brand-sub">The Birthday Queen</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#sleeping" class="nav-link">Sleep Lab 💤</a>
+        <a href="#scrapbook" class="nav-link">Memories 📸</a>
+        <a href="#reasons" class="nav-link">Vibe Check ✨</a>
+        <a href="#cake-section" class="nav-link">Make a Wish 🎂</a>
+        <a href="#letter-section" class="nav-link">Secret Letter 💌</a>
+        <a href="#gifts-section" class="nav-link">Gifts 🎁</a>
+        <a href="#guestbook" class="nav-link">Wish Wall 📝</a>
+      </nav>
+
+      <div class="nav-controls">
+        <button id="music-toggle-btn" class="control-btn music-btn" title="Toggle Birthday Melody">
+          <span class="music-icon" id="music-icon"><i class="fa-solid fa-music"></i></span>
+          <div class="sound-wave" id="sound-wave">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <span class="music-label" id="music-label">Play Music</span>
+        </button>
+
+        <button id="confetti-cannon-btn" class="control-btn cannon-btn" title="Blast Confetti!">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span class="cannon-label">Confetti!</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero" class="hero-section">
+      <div class="hero-glow-sphere"></div>
+      <div class="hero-glow-sphere-2"></div>
+
+      <div class="container hero-container">
+        
+        <!-- Left: Text Content -->
+        <div class="hero-text-content">
+          <div class="hero-chip">
+            <span class="chip-sparkle">✨</span>
+            <span>A Special Celebration Just for You</span>
+          </div>
+
+          <h1 class="hero-title">
+            Happy Birthday, <br>
+            <span class="gradient-text hero-name">Sanviiii!</span>
+          </h1>
+
+          <p class="hero-nicknames">
+            Also affectionately known as: 
+            <span class="nickname-pill">Sanu 🌸</span>
+            <span class="nickname-pill">Sleeping Queen 👑💤</span>
+            <span class="nickname-pill">Drama Queen ✨</span>
+          </p>
+
+          <p class="hero-description">
+            To the girl who lights up every room with that million-dollar smile, who can sleep through any storm, 
+            and whose presence makes life 1000x brighter. Today is all about celebrating YOU!
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="triggerGrandCelebration()">
+              <i class="fa-solid fa-cake-candles"></i> Shower Confetti
+            </button>
+            <a href="#cake-section" class="btn btn-glass">
+              <i class="fa-solid fa-heart"></i> Blow The Candles
+            </a>
+            <a href="#letter-section" class="btn btn-gold">
+              <i class="fa-solid fa-envelope-open-text"></i> Read Your Letter
+            </a>
+          </div>
+
+          <!-- Quick Stat Badges -->
+          <div class="hero-stat-row">
+            <div class="stat-box">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Pure Grace & Beauty</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">14+ hrs</span>
+              <span class="stat-label">Daily Sleep Potential</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">∞</span>
+              <span class="stat-label">Precious Memories</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 3D Royal Portrait Card -->
+        <div class="hero-portrait-wrapper">
+          <div class="portrait-card" id="hero-card">
+            <div class="card-glow-ring"></div>
+            <div class="card-shine"></div>
+            
+            <div class="portrait-frame">
+              <img src="assets/sanvi_royal.jpg" alt="Sanvi in royal ivory gown looking like a queen" class="portrait-img">
+              <div class="portrait-overlay-gradient"></div>
+              
+              <div class="portrait-caption-box">
+                <span class="queen-badge">👑 Birthday Royalty</span>
+                <h3 class="portrait-name">Sanviiii</h3>
+                <p class="portrait-tagline">"Elegance, charm, and pure sunshine"</p>
+              </div>
+            </div>
+
+            <!-- Floating Badges around Hero Card -->
+            <div class="floating-badge badge-top-right">
+              <span class="badge-icon">💖</span>
+              <span class="badge-txt">Prettiest Smile</span>
+            </div>
+
+            <div class="floating-badge badge-bottom-left">
+              <span class="badge-icon">😴</span>
+              <span class="badge-txt">Chief Nap Officer</span>
+            </div>
+
+            <div class="floating-badge badge-mid-left">
+              <span class="badge-icon">✨</span>
+              <span class="badge-txt">1 of 1</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== DEDICATED SLEEPING LAB SECTION ==================== -->
+    <section id="sleeping" class="sleep-section">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-chip">
+            <span>💤 The Official Dossier</span>
+          </div>
+          <h2 class="section-title">The Sleeping Chronicles</h2>
+          <p class="section-subtitle">
+            A scientifically verified tribute to her legendary superpower: Falling asleep anywhere, anytime!
+          </p>
+        </div>
+
+        <div class="sleep-grid">
+          
+          <!-- Left: Caught in 4K Video Player -->
+          <div class="sleep-video-container">
+            <div class="video-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="mockup-title">
+                  <span class="live-rec-dot"></span> LIVE RECORDING: Sanu_Caught_In_4K.mp4
+                </div>
+                <div class="mockup-time">00:05 💤</div>
+              </div>
+
+              <div class="video-player-wrapper">
+                <video id="sleep-video" class="sleep-video" playsinline loop muted>
+                  <source src="assets/sanvi_sleeping.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+
+                <!-- Custom Overlay Play/Pause Button -->
+                <div class="video-overlay" id="video-overlay">
+                  <button class="custom-play-btn" id="video-play-btn" aria-label="Play/Pause Video">
+                    <i class="fa-solid fa-play"></i>
+                  </button>
+                  <p class="video-prompt">Click to play & watch the sleeping champion in action!</p>
+                </div>
+
+                <div class="floating-sleep-tag">
+                  <span class="tag-emoji">😴</span>
+                  <span class="tag-text">Sleeping upright like a pro!</span>
+                </div>
+              </div>
+
+              <div class="mockup-footer">
+                <div class="video-controls-bar">
+                  <button id="toggle-video-state" class="btn-control-icon" title="Play/Pause">
+                    <i class="fa-solid fa-play" id="play-pause-icon"></i>
+                  </button>
+                  <button id="toggle-video-mute" class="btn-control-icon" title="Mute/Unmute">
+                    <i class="fa-solid fa-volume-xmark" id="mute-unmute-icon"></i>
+                  </button>
+                  <div class="video-status-text">
+                    "Folded arms, complete peace, zero disturbances"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Sleeping Stats & Interactive Snooze Meter -->
+          <div class="sleep-stats-container">
+            <div class="glass-card sleep-card-main">
+              <div class="sleep-card-header">
+                <div class="sleep-icon-box">🛌</div>
+                <div>
+                  <h3 class="sleep-card-title">Sanu's Sleep Lab Diagnostics</h3>
+                  <p class="sleep-card-desc">Accredited by the International Nap Association</p>
+                </div>
+              </div>
+
+              <!-- Stat Meters -->
+              <div class="sleep-meters">
+                <div class="meter-item">
+                  <div class="meter-labels">
+                    <span>Ability to Nap Sitting Upright</span>
+                    <span class="meter-val">100%</span>
+                  </div>
+                  <div class="meter-bar-track">
+                    <div class="meter-bar-fill" style="width: 100%;"></div>
+                  </div>
+                </div>
+
+                <div class="meter-item">
+                  <div class="meter-labels">
+                    <span>Alarm Ringtone Resistance</span>
+                    <span class="meter-val">99.8%</span>
+                  </div>
+                  <div class="meter-bar-track">
+                    <div class="meter-bar-fill gold" style="width: 99.8%;"></div>
+                  </div>
+                </div>
+
+                <div class="meter-item">
+                  <div class="meter-labels">
+                    <span>Cuteness While Asleep</span>
+                    <span class="meter-val">Maximum ∞</span>
+                  </div>
+                  <div class="meter-bar-track">
+                    <div class="meter-bar-fill pink" style="width: 100%;"></div>
+                  </div>
+                </div>
+
+                <div class="meter-item">
+                  <div class="meter-labels">
+                    <span>Post-Sleep Energy & Radiance</span>
+                    <span class="meter-val">300%</span>
+                  </div>
+                  <div class="meter-bar-track">
+                    <div class="meter-bar-fill green" style="width: 100%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Snooze Machine -->
+              <div class="interactive-snooze-box">
+                <div class="snooze-display">
+                  <span class="snooze-count-num" id="snooze-counter">0</span>
+                  <span class="snooze-count-text">times Sanu hit snooze today</span>
+                </div>
+                <button class="btn btn-snooze" id="snooze-btn">
+                  <i class="fa-solid fa-bell-slash"></i> Hit Snooze (+5 Mins)
+                </button>
+                <p class="snooze-reaction" id="snooze-reaction">"Just 5 more minutes, I promise!"</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE MEMORY SCRAPBOOK ==================== -->
+    <section id="scrapbook" class="scrapbook-section">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-chip">
+            <span>📸 Precious Moments</span>
+          </div>
+          <h2 class="section-title">The Journey of Sanviiii</h2>
+          <p class="section-subtitle">
+            From the cute baby with the sweetest smile to the gorgeous queen you are today. Tap any memory to view!
+          </p>
+        </div>
+
+        <!-- Filter / Tabs -->
+        <div class="scrapbook-tabs">
+          <button class="tab-btn active" data-filter="all">All Treasures (8)</button>
+          <button class="tab-btn" data-filter="queen">Queen Era 👑</button>
+          <button class="tab-btn" data-filter="traditional">Traditional Elegance 🪷</button>
+          <button class="tab-btn" data-filter="childhood">Nostalgic Childhood 🧸</button>
+        </div>
+
+        <!-- Masonry / Polaroid Grid -->
+        <div class="polaroid-grid" id="polaroid-grid">
+          
+          <!-- Item 1: Royal Ivory Gown -->
+          <div class="polaroid-card" data-category="queen" data-index="0">
+            <div class="tape-strip top-center"></div>
+            <div class="polaroid-inner">
+              <div class="polaroid-img-box">
+                <img src="assets/sanvi_royal.jpg" alt="Sanvi looking like royalty in ivory gown" loading="lazy">
+                <span class="photo-tag">Royal Queen</span>
+              </div>
+              <div class="polaroid-caption">
+                <h4 class="caption-title">The Royal Glow</h4>
+                <p class="caption-desc">Looking like an actual fairy-tale queen on that floral sofa. Drop-dead gorgeous!</p>
+                <div class="polaroid-footer">
+                  <span class="polaroid-date">Forever Iconic</span>
+                  <button class="like-btn" data-id="1">
+                    <i class="fa-solid fa-heart"></i> <span class="like-count">142</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Black Saree Elegance -->
+          <div class="polaroid-card rotate-right" data-category="traditional" data-index="1">
+            <div class="tape-strip top-left"></div>
+            <div class="polaroid-inner">
+              <div class="polaroid-img-box">
+                <img src="assets/sanvi_black_saree.jpg" alt="Sanvi in gorgeous black saree with pink blouse" loading="lazy">
+                <span class="photo-tag">Saree Siren</span>
+              </div>
+              <div class="polaroid-caption">
+                <h4 class="caption-title">Traditional Elegance</h4>
+                <p class="caption-desc">Black saree, pink florals, jhumkas, and that radiant smile. Pure perfection!</p>
+                <div class="polaroid-footer">
+                  <span class="polaroid-date">Elegance 100%</span>
+                  <button class="like-btn" data-id="2">
+                    <i class="fa-solid fa-heart"></i> <span class="like-count">198</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Green Saree Festive Moment with Friend -->
+          <div class="polaroid-card rotate-left" data-category="traditional" data-index="2">
+            <div class="tape-strip top-right"></div>
+            <div class="polaroid-inner">
+              <div class="polaroid-img-box">
+                <img src="assets/sanvi_green_saree.jpg" alt="Festive moments together in traditional South Indian attire" loading="lazy">
+                <span class="photo-tag">Golden Moments</span>
+              </div>
+              <div class="polaroid-caption">
+                <h4 class="caption-title">Celebrating Together</h4>
+                <p class="caption-desc">Traditional vibes, laughter, temple smiles, and memories that stay forever in the heart.</p>
+                <div class="polaroid-footer">
+                  <span class="polaroid-date">Unbreakable Bond</span>
+                  <button class="like-btn" data-id="3">
+                    <i class="fa-solid fa-heart"></i> <span class="like-count">245</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: Childhood 1st Birthday Cake Cutting -->
+          <div class="polaroid-card" data-category="childhood" data-index="3">
+            <div class="tape-strip top-center"></div>
+            <div class="polaroid-inner">
+              <div class="polaroid-img-box">
+                <img src="assets/sanvi_birthday_cake.jpg" alt="Childhood birthday cake cutting Happy Birthday Sanvi" loading="lazy">
+                <span class="photo-tag">Day 1 Legend</span>
+              </div>
+              <div class="polaroid-caption">
+                <h4 class="caption-title">"Happy Birthday Sanvi!"</h4>
+                <p class="caption-desc">The OG cake cutting! Look at that tiny pink frilly dress and the birthday cake!</p>
+                <div class="polaroid-footer">
+                  <span class="polaroid-date">First Birthday</span>
+                  <button class="like-btn" data-id="4">
+                    <i class="fa-solid fa-heart"></i> <span class="like-count">310</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5: Childhood Waving Smile -->
+          <div class="polaroid-card rotate-left" data-category="childhood" data-index="4">
+            <div class="tape-strip top-left"></div>
+            <div class="polaroid-inner">
+              <div class="polaroid-img-box">
+                <img src="assets/sanvi_waving.jpg" alt="Childhood Sanvi waving with curly hair and huge smile" loading="lazy">
+                <span class="photo-tag">Hello World!</span>
+              </div>
+              <div class="polaroid-caption">
+                <h4 class="caption-title">The Signature Wave</h4>
+                <p class="caption-desc">Those curls and that sweetest "Hi!" wave. Born to spread happiness everywhere.</p>
+                <div class="polaroid-footer">
+                  <span class="polaroid-date">Sweet Childhood</span>
+                  <button class="like-btn" data-id="5">
+                    <i class="fa-solid fa-heart"></i> <span class="like-count">280</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6: Toddler Shaved Head Cute Smile -->
+          <div class="polaroid-card rotate-right" data-category="childhood" data-index="5">
+            <div class="tape-strip top-right"></div>
+            <div class="polaroid-inner">
+              <div class="polaroid-img-box">
+                <img src="assets/sanvi_toddler_smile.jpg" alt="Adorable toddler Sanvi with shaved head and big bright grin" loading="lazy">
+                <span class="photo-tag">Peak Cuteness</span>
+              </div>
+              <div class="polaroid-caption">
+                <h4 class="caption-title">The Million Dollar Grin</h4>
+                <p class="caption-desc">Look at those sparkling big eyes and that naughty, precious smile! Absolutely priceless.</p>
+                <div class="polaroid-footer">
+                  <span class="polaroid-date">Toddler Days</span>
+                  <button class="like-btn" data-id="6">
+                    <i class="fa-solid fa-heart"></i> <span class="like-count">350</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 7: Vintage Studio Portrait in Pink Hat -->
+          <div class="polaroid-card" data-category="childhood" data-index="6">
+            <div class="tape-strip top-center"></div>
+            <div class="polaroid-inner">
+              <div class="polaroid-img-box">
+                <img src="assets/sanvi_baby_hat.jpg" alt="Baby Sanvi in pink floral hat with family" loading="lazy">
+                <span class="photo-tag">Baby Doll</span>
+              </div>
+              <div class="polaroid-caption">
+                <h4 class="caption-title">The Little Pink Hat</h4>
+                <p class="caption-desc">Dressed up like a living doll in that floral pink bonnet, pink socks, and cute dress.</p>
+                <div class="polaroid-footer">
+                  <span class="polaroid-date">Studio Vintage</span>
+                  <button class="like-btn" data-id="7">
+                    <i class="fa-solid fa-heart"></i> <span class="like-count">215</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 8: Childhood Outdoor 2010 Memory -->
+          <div class="polaroid-card rotate-left" data-category="childhood" data-index="7">
+            <div class="tape-strip top-left"></div>
+            <div class="polaroid-inner">
+              <div class="polaroid-img-box">
+                <img src="assets/sanvi_childhood_2010.jpg" alt="Childhood photo 2010 with family" loading="lazy">
+                <span class="photo-tag">June 2010</span>
+              </div>
+              <div class="polaroid-caption">
+                <h4 class="caption-title">Cherished Roots</h4>
+                <p class="caption-desc">Surrounded by warmth, greenery, and family love. A timestamp of pure nostalgia.</p>
+                <div class="polaroid-footer">
+                  <span class="polaroid-date">04/06/2010</span>
+                  <button class="like-btn" data-id="8">
+                    <i class="fa-solid fa-heart"></i> <span class="like-count">190</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== REASONS WHY SANU IS 1 OF 1 (FLIP CARDS) ==================== -->
+    <section id="reasons" class="reasons-section">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-chip">
+            <span>✨ Unmatched Vibes</span>
+          </div>
+          <h2 class="section-title">Why Sanu is Truly 1 of 1</h2>
+          <p class="section-subtitle">
+            Tap each card to flip and reveal a special truth about why you're so loved!
+          </p>
+        </div>
+
+        <div class="flip-cards-grid">
+          
+          <!-- Card 1 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="card-icon-bubble">😄</div>
+                <h3 class="card-front-title">The Laughter Therapy</h3>
+                <p class="card-hint">Tap to flip 🔄</p>
+              </div>
+              <div class="flip-card-back">
+                <span class="back-badge">Reason #1</span>
+                <h4>That Contagious Laugh</h4>
+                <p>Your laugh has this insane superpower of dissolving anyone's bad mood. Even on the heaviest days, hearing you giggle changes the whole room's temperature.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="card-icon-bubble">💤</div>
+                <h3 class="card-front-title">The Sleep Olympian</h3>
+                <p class="card-hint">Tap to flip 🔄</p>
+              </div>
+              <div class="flip-card-back">
+                <span class="back-badge">Reason #2</span>
+                <h4>The Nap Champion</h4>
+                <p>Can fall asleep in literally any posture, on any furniture, through any alarm! But once fully charged, you bring the most fun, electric, hilarious energy imaginable.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="card-icon-bubble">✨</div>
+                <h3 class="card-front-title">Unapologetic Grace</h3>
+                <p class="card-hint">Tap to flip 🔄</p>
+              </div>
+              <div class="flip-card-back">
+                <span class="back-badge">Reason #3</span>
+                <h4>Royal Aura Everywhere</h4>
+                <p>Whether you're rocking a traditional silk saree, an ivory queen gown, or super cozy lazy-day hoodies, your elegance and grace are just effortless and natural.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="card-icon-bubble">👂</div>
+                <h3 class="card-front-title">The Best Listener</h3>
+                <p class="card-hint">Tap to flip 🔄</p>
+              </div>
+              <div class="flip-card-back">
+                <span class="back-badge">Reason #4</span>
+                <h4>A Safe Haven</h4>
+                <p>You listen without judging, you care without keeping score, and you always offer genuine comfort. Talking to you feels just like coming home.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="card-icon-bubble">🍕</div>
+                <h3 class="card-front-title">Cravings & Drama</h3>
+                <p class="card-hint">Tap to flip 🔄</p>
+              </div>
+              <div class="flip-card-back">
+                <span class="back-badge">Reason #5</span>
+                <h4>The Sweetest Drama Queen</h4>
+                <p>A little bit of sweet drama, a big appetite for yummy treats, and a heart overflowing with genuine warmth. You are the ultimate combination of fun!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="card-icon-bubble">💖</div>
+                <h3 class="card-front-title">Pure Golden Heart</h3>
+                <p class="card-hint">Tap to flip 🔄</p>
+              </div>
+              <div class="flip-card-back">
+                <span class="back-badge">Reason #6</span>
+                <h4>Irreplaceable Friend</h4>
+                <p>People like you are rare treasures in this world. Genuine, loyal, sweet, and wonderfully weird in the best possible way. Never change who you are!</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE BIRTHDAY CAKE & WISH CEREMONY ==================== -->
+    <section id="cake-section" class="cake-section">
+      <div class="container text-center">
+        
+        <div class="section-header text-center">
+          <div class="section-chip">
+            <span>🎂 The Birthday Ritual</span>
+          </div>
+          <h2 class="section-title">Make a Wish, Sanu!</h2>
+          <p class="section-subtitle">
+            Close your eyes, make your deepest secret wish, and tap the candles to blow them out!
+          </p>
+        </div>
+
+        <div class="cake-stage">
+          
+          <div class="cake-container" id="cake-container">
+            
+            <!-- Candles Row -->
+            <div class="candles-row" id="candles-row">
+              <div class="candle" data-candle="1">
+                <div class="flame" id="flame-1"></div>
+                <div class="wick"></div>
+                <div class="wax wax-pink"></div>
+              </div>
+              <div class="candle" data-candle="2">
+                <div class="flame" id="flame-2"></div>
+                <div class="wick"></div>
+                <div class="wax wax-gold"></div>
+              </div>
+              <div class="candle" data-candle="3">
+                <div class="flame" id="flame-3"></div>
+                <div class="wick"></div>
+                <div class="wax wax-purple"></div>
+              </div>
+              <div class="candle" data-candle="4">
+                <div class="flame" id="flame-4"></div>
+                <div class="wick"></div>
+                <div class="wax wax-rose"></div>
+              </div>
+            </div>
+
+            <!-- Cake Layer 3 (Top) -->
+            <div class="cake-tier tier-top">
+              <div class="frosting-decorations">
+                <span class="cherry">🍒</span>
+                <span class="frosting-piping"></span>
+                <span class="cherry">🍓</span>
+                <span class="frosting-piping"></span>
+                <span class="cherry">🍒</span>
+              </div>
+              <div class="tier-body">
+                <span class="cake-inscription">Sanviiii ✨</span>
+              </div>
+            </div>
+
+            <!-- Cake Layer 2 (Middle) -->
+            <div class="cake-tier tier-mid">
+              <div class="frosting-drips">
+                <span class="drip"></span><span class="drip"></span><span class="drip"></span><span class="drip"></span><span class="drip"></span>
+              </div>
+              <div class="tier-body">
+                <div class="sprinkles-pattern"></div>
+              </div>
+            </div>
+
+            <!-- Cake Layer 1 (Base) -->
+            <div class="cake-tier tier-base">
+              <div class="tier-body">
+                <div class="gold-ribbon-decor"></div>
+              </div>
+            </div>
+
+            <!-- Cake Stand -->
+            <div class="cake-plate">
+              <div class="plate-shine"></div>
+            </div>
+            <div class="stand-stem"></div>
+            <div class="stand-base"></div>
+
+          </div>
+
+          <!-- Interactive Action Buttons -->
+          <div class="cake-action-area">
+            <button id="blow-candles-btn" class="btn btn-blow-candles">
+              <span class="blow-icon">💨</span>
+              <span class="blow-text">Blow Out The Candles!</span>
+            </button>
+            <button id="relight-btn" class="btn btn-glass" style="display: none;">
+              <i class="fa-solid fa-fire"></i> Relight Candles
+            </button>
+          </div>
+
+          <!-- Secret Wish Pop-up Result -->
+          <div class="wish-result-banner" id="wish-result-banner">
+            <div class="wish-result-inner">
+              <span class="wish-stars">🌟✨🎉✨🌟</span>
+              <h3 class="wish-title">WISH SENT TO THE STARS!</h3>
+              <p class="wish-text">
+                May every single prayer, quiet dream, and laughter you wished for tonight manifest into your reality, Sanu! 
+                You deserve all the happiness the universe has to offer.
+              </p>
+              <div class="virtual-slice-box">
+                <span class="slice-emoji">🍰</span>
+                <span class="slice-text">Here is your slice of virtual chocolate strawberry cake! Bon appétit!</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECRET LETTER FROM THE HEART ==================== -->
+    <section id="letter-section" class="letter-section">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-chip">
+            <span>💌 Sealed With Care</span>
+          </div>
+          <h2 class="section-title">A Letter For You</h2>
+          <p class="section-subtitle">
+            A heartfelt note straight from the core. Click the wax seal to break the seal and read.
+          </p>
+        </div>
+
+        <div class="envelope-scene">
+          
+          <div class="envelope-wrapper" id="envelope-wrapper">
+            
+            <!-- Envelope Front & Flap -->
+            <div class="envelope-back"></div>
+            
+            <!-- The Actual Letter Sheet -->
+            <div class="letter-paper" id="letter-paper">
+              <div class="letter-inner">
+                <div class="letter-watermark">S</div>
+                <div class="letter-header">
+                  <span class="letter-date">A Special Birthday Note 🌸</span>
+                  <span class="letter-to">Dearest Sanviiii (Sanu),</span>
+                </div>
+
+                <div class="letter-body">
+                  <p>
+                    Another year older, another year wiser, and another year of being the most effortlessly wonderful person in my life!
+                  </p>
+                  <p>
+                    I wanted to take a moment today to remind you just how deeply valued, appreciated, and special you are. 
+                    Life has a way of moving so fast, but having a person like you around makes all the chaotic days feel calm, 
+                    the boring days feel full of adventure, and the toughest moments feel light.
+                  </p>
+                  <p>
+                    From your iconic ability to fall asleep sitting upright in chairs (which we have permanently documented in 4K high definition! 😂), 
+                    to your unforgettable smile that genuinely brightens up the darkest corners, to the way you look like absolute royalty every time you dress up — 
+                    you are truly one of a kind.
+                  </p>
+                  <p>
+                    Thank you for being my constant, for listening to endless conversations, for sharing unspoken laughs, 
+                    and for simply being your genuine, lovely, sleepy self. Never let the world change that gentle and golden heart of yours.
+                  </p>
+                  <p>
+                    On this birthday, I wish you an ocean of happiness, dreams that unfold effortlessly into reality, vibrant health, 
+                    endless plates of delicious food, and of course — 12 solid hours of uninterrupted beauty sleep every single day!
+                  </p>
+                </div>
+
+                <div class="letter-footer">
+                  <p class="letter-signoff">Always here for you, through every chapter,</p>
+                  <p class="letter-signature">Your Partner in Crime & Biggest Cheerleader ✨</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Envelope Pocket Front -->
+            <div class="envelope-pocket"></div>
+            
+            <!-- Envelope Flap & Wax Seal -->
+            <div class="envelope-flap" id="envelope-flap"></div>
+            
+            <div class="wax-seal" id="wax-seal" title="Click to break seal & open letter">
+              <div class="seal-inner">
+                <span class="seal-letter">S</span>
+              </div>
+              <span class="seal-prompt">Tap to Open</span>
+            </div>
+
+          </div>
+
+          <div class="envelope-instructions text-center" id="letter-prompt-text">
+            <p>👆 Tap the golden <strong>"S"</strong> seal above to unfold the letter!</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE MYSTERY GIFTS ==================== -->
+    <section id="gifts-section" class="gifts-section">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-chip">
+            <span>🎁 Birthday Perks</span>
+          </div>
+          <h2 class="section-title">Pick Your Birthday Mystery Gifts!</h2>
+          <p class="section-subtitle">
+            Because one present is never enough. Tap any mystery gift box to unwrap your special coupons!
+          </p>
+        </div>
+
+        <div class="gifts-grid">
+          
+          <!-- Gift 1 -->
+          <div class="gift-box-item" data-gift="1">
+            <div class="gift-box" id="gift-1">
+              <div class="gift-ribbon-v"></div>
+              <div class="gift-ribbon-h"></div>
+              <div class="gift-bow">🎀</div>
+              <div class="gift-lid"></div>
+              <div class="gift-body">
+                <span class="gift-number">01</span>
+              </div>
+            </div>
+            <div class="gift-reveal" id="gift-reveal-1">
+              <div class="coupon-card">
+                <div class="coupon-badge">VIP COUPON</div>
+                <div class="coupon-emoji">🛌💤</div>
+                <h4>The Lifetime Nap Privilege Pass</h4>
+                <p>Grants Sanu the official, unquestioned right to take a nap anytime, anywhere, cancel any plans with "I'm sleepy", without anyone complaining. Valid for eternity!</p>
+                <div class="coupon-code">CODE: SLEEP_QUEEN_2026</div>
+              </div>
+            </div>
+            <p class="gift-label">Tap to Open Gift #1</p>
+          </div>
+
+          <!-- Gift 2 -->
+          <div class="gift-box-item" data-gift="2">
+            <div class="gift-box" id="gift-2">
+              <div class="gift-ribbon-v"></div>
+              <div class="gift-ribbon-h"></div>
+              <div class="gift-bow">🎀</div>
+              <div class="gift-lid"></div>
+              <div class="gift-body">
+                <span class="gift-number">02</span>
+              </div>
+            </div>
+            <div class="gift-reveal" id="gift-reveal-2">
+              <div class="coupon-card">
+                <div class="coupon-badge">DELICIOUS TREAT</div>
+                <div class="coupon-emoji">🍕🍨🍫</div>
+                <h4>The "Any Food You Crave" Voucher</h4>
+                <p>Redeemable on me! Whatever craving hits — ice cream, pizza, biryani, or coffee — I will get it for you, no questions asked.</p>
+                <div class="coupon-code">CODE: SANU_CRAVINGS_FREE</div>
+              </div>
+            </div>
+            <p class="gift-label">Tap to Open Gift #2</p>
+          </div>
+
+          <!-- Gift 3 -->
+          <div class="gift-box-item" data-gift="3">
+            <div class="gift-box" id="gift-3">
+              <div class="gift-ribbon-v"></div>
+              <div class="gift-ribbon-h"></div>
+              <div class="gift-bow">🎀</div>
+              <div class="gift-lid"></div>
+              <div class="gift-body">
+                <span class="gift-number">03</span>
+              </div>
+            </div>
+            <div class="gift-reveal" id="gift-reveal-3">
+              <div class="coupon-card">
+                <div class="coupon-badge">ETERNAL BOND</div>
+                <div class="coupon-emoji">🛡️💖🤝</div>
+                <h4>The 24/7 "I've Got Your Back" Warranty</h4>
+                <p>Whenever you need a listener, an accomplice, someone to cheer you up or vent to at 2 AM — I am always one phone call away. 100% unconditional.</p>
+                <div class="coupon-code">CODE: BESTIE_FOREVER_INF</div>
+              </div>
+            </div>
+            <p class="gift-label">Tap to Open Gift #3</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE WISH WALL (GUESTBOOK) ==================== -->
+    <section id="guestbook" class="guestbook-section">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-chip">
+            <span>📝 Pin A Wish</span>
+          </div>
+          <h2 class="section-title">The Birthday Notes Board</h2>
+          <p class="section-subtitle">
+            Sweet notes, wishes, and inside jokes pinned on the wall. Pin your own wish below!
+          </p>
+        </div>
+
+        <div class="board-container">
+          
+          <!-- Sticky Notes Wall -->
+          <div class="sticky-notes-grid" id="sticky-notes-grid">
+            
+            <div class="sticky-note note-pink">
+              <div class="pin">📌</div>
+              <p class="note-text">"Happy Birthday Sanviiii! May your sleep be sweet, your alarms be silent, and your coffee be warm! ☕💤"</p>
+              <span class="note-author">— Sleep Team</span>
+            </div>
+
+            <div class="sticky-note note-yellow">
+              <div class="pin">📌</div>
+              <p class="note-text">"To the prettiest girl with the warmest smile, keep slaying and shining like the queen you are! 👑✨"</p>
+              <span class="note-author">— Big Fan #1</span>
+            </div>
+
+            <div class="sticky-note note-purple">
+              <div class="pin">📌</div>
+              <p class="note-text">"Happy Birthday Sanu! Reminder: you still owe me a treat for waking you up from your 14-hour nap! 😂🍕"</p>
+              <span class="note-author">— Treat Claimer</span>
+            </div>
+
+            <div class="sticky-note note-mint">
+              <div class="pin">📌</div>
+              <p class="note-text">"May all your wildest dreams take flight this year. You deserve every ounce of magic in this world! 🌸"</p>
+              <span class="note-author">— With All My Heart</span>
+            </div>
+
+          </div>
+
+          <!-- Add Note Form Card -->
+          <div class="add-note-card">
+            <h3 class="add-note-title">Pin A New Note to Sanu's Board</h3>
+            
+            <form id="add-note-form" class="note-form">
+              <div class="form-group">
+                <label for="note-author-input">Your Name / Nickname:</label>
+                <input type="text" id="note-author-input" placeholder="e.g. Your Secret Bestie" required maxlength="30">
+              </div>
+
+              <div class="form-group">
+                <label for="note-text-input">Your Wish / Message for Sanu:</label>
+                <textarea id="note-text-input" rows="3" placeholder="Write a sweet birthday wish, funny joke, or memory..." required maxlength="160"></textarea>
+              </div>
+
+              <div class="color-picker-group">
+                <label>Choose Note Color:</label>
+                <div class="color-options">
+                  <label class="color-opt"><input type="radio" name="note-color" value="note-pink" checked><span class="circle pink"></span></label>
+                  <label class="color-opt"><input type="radio" name="note-color" value="note-yellow"><span class="circle yellow"></span></label>
+                  <label class="color-opt"><input type="radio" name="note-color" value="note-purple"><span class="circle purple"></span></label>
+                  <label class="color-opt"><input type="radio" name="note-color" value="note-mint"><span class="circle mint"></span></label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                <i class="fa-solid fa-thumbtack"></i> Pin Note to Board!
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+      <div class="container text-center">
+        <div class="footer-badge">
+          <span class="heart-pulse">💖</span>
+          <span>Crafted with Infinite Love & Laughs for Sanviiii</span>
+        </div>
+        <p class="footer-tagline">
+          Happy Birthday, Sanu! May this year be your most unforgettable, joyful, and magical chapter yet. ✨
+        </p>
+        <div class="footer-actions">
+          <button class="btn btn-glass btn-sm" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <i class="fa-solid fa-arrow-up"></i> Back to Top
+          </button>
+          <button class="btn btn-primary btn-sm" onclick="triggerGrandCelebration()">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> More Sparkles!
+          </button>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ==================== LIGHTBOX MODAL ==================== -->
+  <div id="lightbox-modal" class="lightbox-modal">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-dialog">
+      <button class="lightbox-close-btn" id="lightbox-close-btn" aria-label="Close Preview">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <button class="lightbox-nav-btn prev-btn" id="lightbox-prev-btn" aria-label="Previous Photo">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      
+      <button class="lightbox-nav-btn next-btn" id="lightbox-next-btn" aria-label="Next Photo">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <div class="lightbox-media-container">
+        <img id="lightbox-img" src="" alt="Photo preview" class="lightbox-img">
+      </div>
+
+      <div class="lightbox-info-bar">
+        <div class="lightbox-text">
+          <h3 id="lightbox-title" class="lightbox-title">Photo Title</h3>
+          <p id="lightbox-desc" class="lightbox-desc">Photo description goes here.</p>
+        </div>
+        <div class="lightbox-actions">
+          <button class="btn-heart-burst" id="lightbox-heart-btn">
+            <i class="fa-solid fa-heart"></i>
+            <span id="lightbox-likes-count">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
